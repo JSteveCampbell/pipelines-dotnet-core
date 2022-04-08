@@ -22,3 +22,9 @@ steps:
     targetPath: '$(Build.SourcesDirectory)/bin/Release'
     artifact: 'drop'
     publishLocation: 'pipeline'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.SourcesDirectory)/bin/Release'
+    artifact: 'drop2'
+    publishLocation: 'pipeline'
