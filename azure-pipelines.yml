@@ -12,15 +12,17 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  buildInfo: 'buildInfo.txt'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
 - script: 
-    echo Pipeline = $(Build.DefinitionName)
-    echo Branch = $(Build.SourceBranchName)
-    echo Build = $(Build.BuildNumber)
+    echo Pipeline = $(Build.DefinitionName) > $(buildInfo)
+    echo Branch = $(Build.SourceBranchName) >> $(buildInfo)
+    echo Build = $(Build.BuildNumber) >> $(buildInfo)
+  displayName: Build Info
 
 - task: PublishPipelineArtifact@1
   inputs:
