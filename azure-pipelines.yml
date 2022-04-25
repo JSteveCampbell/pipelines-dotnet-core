@@ -19,7 +19,7 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 
 - script: 
-    echo Pipeline = $(Build.DefinitionName)\n > $(buildInfo)
+    echo -e Pipeline = $(Build.DefinitionName)\n > $(buildInfo)
     Branch = $(Build.SourceBranchName)\n >> $(buildInfo)
     Build = $(Build.BuildNumber) >> $(buildInfo)
   displayName: Build Info
