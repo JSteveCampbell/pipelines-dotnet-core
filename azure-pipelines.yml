@@ -2,7 +2,7 @@
 # Build and test ASP.NET Core projects targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-name: $(TeamProject)_$(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+name: $(TeamProject)_$(Build.DefinitionName)_$(Build.SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
 - master
@@ -19,7 +19,7 @@ steps:
 
 - script: 
     echo Pipeline = $(Build.DefinitionName)
-    echo Branch = $(SourceBranchName)
+    echo Branch = $(Build.SourceBranchName)
     echo Build = $(Build.BuildNumber)
 
 - task: PublishPipelineArtifact@1
