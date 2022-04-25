@@ -22,6 +22,7 @@ steps:
     echo Pipeline = $(Build.DefinitionName) > $(buildInfo)
     echo Branch = $(Build.SourceBranchName) >> $(buildInfo)
     echo Build = $(Build.BuildNumber) >> $(buildInfo)
+    cat $(buildInfo)
   displayName: Build Info
 
 - task: PublishPipelineArtifact@1
