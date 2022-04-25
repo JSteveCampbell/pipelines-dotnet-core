@@ -19,9 +19,11 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 
 - script: 
-    echo -e Pipeline = $(Build.DefinitionName) > $(buildInfo)
-    \nBranch = $(Build.SourceBranchName) >> $(buildInfo)
-    \nBuild = $(Build.BuildNumber) >> $(buildInfo)
+    cat > $(buildInfo) << 'EOF'
+    Pipeline = $(Build.DefinitionName)
+    Branch = $(Build.SourceBranchName)
+    Build = $(Build.BuildNumber)
+    EOF
   displayName: Build Info
 
 - task: PublishPipelineArtifact@1
