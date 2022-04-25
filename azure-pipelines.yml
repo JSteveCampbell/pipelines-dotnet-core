@@ -12,7 +12,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  buildInfo: 'buildInfo.txt'
+  buildInfo: (Build.ArtifactStagingDirectory)/'buildInfo.txt'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
@@ -36,3 +36,9 @@ steps:
     targetPath: '$(Build.SourcesDirectory)/bin/Release'
     artifact: 'drop2'
     publishLocation: 'pipeline'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop3'
+    publishLocation: 'Container'
