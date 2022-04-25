@@ -17,6 +17,11 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
+- script: 
+    echo Pipeline = $(Build.DefinitionName)
+    echo Branch = $(SourceBranchName)
+    echo Build = $(Build.BuildNumber)
+
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Build.SourcesDirectory)/bin/Release'
