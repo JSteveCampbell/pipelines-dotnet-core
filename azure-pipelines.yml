@@ -13,7 +13,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   buildInfo: $(Build.ArtifactStagingDirectory)/'buildInfo.txt'
-  myDate: $(Get-Date -Format yyyy.MMdd)$(Rev:.r)
+  myDate: $(Get-Date -Format yyyy.MMdd)
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
