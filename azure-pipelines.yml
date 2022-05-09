@@ -13,13 +13,16 @@ pool:
 variables:
   buildConfiguration: 'Release'
   buildInfo: $(Build.ArtifactStagingDirectory)/'buildInfo.txt'
-  flutterBuildNum: "$(Date:yyyy.MMdd)$(Rev:.r)"
+  myDate: $(Get-Date -Format yyyy.MMdd)$(Rev:.r)
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-- script: echo '$(flutterBuildNum)' # outputs customized build number
+- script: |
+
+    echo $(myDate) 
+    
   displayName: 'show variable'
 
 - task: PublishPipelineArtifact@1
