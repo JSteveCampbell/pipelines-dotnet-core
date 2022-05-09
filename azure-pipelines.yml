@@ -13,7 +13,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   buildInfo: $(Build.ArtifactStagingDirectory)/'buildInfo.txt'
-  flutterBuildNum: $(Date:yyyy.MMdd)$(Rev:.r)
+  flutterBuildNum: "$(Date:yyyy.MMdd)$(Rev:.r)"
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
