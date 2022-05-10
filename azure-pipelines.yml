@@ -25,20 +25,20 @@ steps:
     
   displayName: 'show variable'
 
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Build.SourcesDirectory)/bin/Release'
-    artifact: 'drop'
-    publishLocation: 'pipeline'
+#- task: PublishPipelineArtifact@1
+#  inputs:
+#    targetPath: '$(Build.SourcesDirectory)/bin/Release'
+#    artifact: 'drop'
+#    publishLocation: 'pipeline'
 
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Build.SourcesDirectory)/bin/Release'
-    artifact: 'drop2'
-    publishLocation: 'pipeline'
+#- task: PublishPipelineArtifact@1
+#  inputs:
+#    targetPath: '$(Build.SourcesDirectory)/bin/Release'
+#    artifact: 'drop2'
+#    publishLocation: 'pipeline'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop3'
-    publishLocation: 'Container'
+#- task: PublishBuildArtifacts@1
+#  inputs:
+#    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+#    ArtifactName: 'drop3'
+#    publishLocation: 'Container'
