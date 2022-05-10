@@ -23,7 +23,7 @@ steps:
     export var1=bob
     echo var1 is $var1
     echo "##vso[task.setvariable variable=var2;]$var1"
-    
+    echo var2 is $(var2)
   displayName: 'set variable'
 
 #- task: PublishPipelineArtifact@1
