@@ -20,7 +20,9 @@ steps:
 #  displayName: 'dotnet build $(buildConfiguration)'
 
 - bash: |
-    echo "##vso[task.setvariable variable=var2;]bob"
+    export var1=bob
+    export var3=${var1}.isYourUncle
+    echo "##vso[task.setvariable variable=var2;]$var3"
   displayName: 'set variable'
 
 - script: |
