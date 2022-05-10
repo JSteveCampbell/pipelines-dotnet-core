@@ -21,7 +21,7 @@ steps:
 
 - bash: |
     export var1=bob
-    echo var1 is $bob
+    echo var1 is $var1
  
     
   displayName: 'show variable'
