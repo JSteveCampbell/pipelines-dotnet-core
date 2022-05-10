@@ -20,7 +20,8 @@ steps:
 #  displayName: 'dotnet build $(buildConfiguration)'
 
 - bash: |
-    echo "##vso[task.setvariable variable=myVar;]123"
+    export newNumber=123-$(Build.SourceBranchName)
+    echo "##vso[task.setvariable variable=myVar;]$newNumber"
     echo "You can use macro syntax for variables: $(myVar)" 
     
   displayName: 'show variable'
