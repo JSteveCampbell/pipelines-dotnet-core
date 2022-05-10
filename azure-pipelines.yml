@@ -22,9 +22,9 @@ steps:
 - bash: |
     export var1=bob
     echo var1 is $var1
- 
+    echo "##vso[task.setvariable variable=var2;]$var1"
     
-  displayName: 'show variable'
+  displayName: 'set variable'
 
 #- task: PublishPipelineArtifact@1
 #  inputs:
