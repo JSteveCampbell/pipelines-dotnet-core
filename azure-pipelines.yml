@@ -25,6 +25,9 @@ steps:
     echo "##vso[task.setvariable variable=var2;]$var1"
   displayName: 'set variable'
 
+- script: |
+    echo var2 is $(var2)
+
 #- task: PublishPipelineArtifact@1
 #  inputs:
 #    targetPath: '$(Build.SourcesDirectory)/bin/Release'
