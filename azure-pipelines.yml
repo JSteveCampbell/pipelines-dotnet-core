@@ -29,9 +29,10 @@ steps:
     echo var2 is $(var2)
 
 - bash: |
-    echo Branch = $(Build.SourceBranch)
-    echo Commit = $(Build.SourceVersion)
-    echo Message = $(Build.SourceVersionMessage)
+    echo Branch = $(Build.SourceBranch) >> buildInfo.txt
+    echo Commit = $(Build.SourceVersion) >> buildInfo.txt
+    echo Message = $(Build.SourceVersionMessage) >> buildInfo.txt
+    cat buildInfo.txt
   displayName: 'display sys variables'
 
 - task: PublishPipelineArtifact@1
