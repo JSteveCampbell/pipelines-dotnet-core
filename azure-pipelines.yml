@@ -16,8 +16,8 @@ variables:
   myDate: $(Get-Date -Format yyyy.MMdd)
 
 steps:
-#- script: dotnet build --configuration $(buildConfiguration)
-#  displayName: 'dotnet build $(buildConfiguration)'
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
 
 - bash: |
     export var1=bob
@@ -34,11 +34,11 @@ steps:
     echo Message = $(Build.SourceVersionMessage)
   displayName: 'display sys variables'
 
-#- task: PublishPipelineArtifact@1
-#  inputs:
-#    targetPath: '$(Build.SourcesDirectory)/bin/Release'
-#    artifact: 'drop'
-#    publishLocation: 'pipeline'
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.SourcesDirectory)/bin/Release'
+    artifact: 'drop'
+    publishLocation: 'pipeline'
 
 #- task: PublishPipelineArtifact@1
 #  inputs:
