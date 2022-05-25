@@ -38,8 +38,12 @@ steps:
 
 - bash: |
     value=$(<$(buildInfo))
-    echo "$value"
-  displayName: 'display info file contents'
+    echo "##vso[task.setvariable variable=fileContents;]$value"
+  displayName: 'slurp file contents into pipeline variable'
+
+- bash: |
+    echo $(fileContents)
+  displayName: 'display variable from previous step'
 
 - task: PublishBuildArtifacts@1
   inputs:
