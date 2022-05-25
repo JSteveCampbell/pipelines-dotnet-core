@@ -28,11 +28,17 @@ steps:
 - script: |
     echo var2 is $(var2)
 
+#- bash: |
+#    mkdir $(Build.ArtifactStagingDirectory)/info
+#    echo Branch = $(Build.SourceBranch) >> $(buildInfo)
+#    echo Commit = $(Build.SourceVersion) >> $(buildInfo)
+#    echo Message = $(Build.SourceVersionMessage) >> $(buildInfo)
+#    cat $(buildInfo)
+#  displayName: 'create info file'
+
 - bash: |
     mkdir $(Build.ArtifactStagingDirectory)/info
-    echo Branch = $(Build.SourceBranch) >> $(buildInfo)
-    echo Commit = $(Build.SourceVersion) >> $(buildInfo)
-    echo Message = $(Build.SourceVersionMessage) >> $(buildInfo)
+    echo Branch = $(Build.SourceBranch) ... Commit = $(Build.SourceVersion) ... Message = $(Build.SourceVersionMessage) >> $(buildInfo)
     cat $(buildInfo)
   displayName: 'create info file'
 
