@@ -28,6 +28,12 @@ steps:
 - script: |
     echo var2 is $(var2)
 
+- bash: |
+    echo Branch = $(Build.SourceBranch)
+    echo Commit = $(Build.SourceVersion)
+    echo Message = $(Build.SourceVersionMessage)
+  displayName: 'display build variables'
+
 #- task: PublishPipelineArtifact@1
 #  inputs:
 #    targetPath: '$(Build.SourcesDirectory)/bin/Release'
