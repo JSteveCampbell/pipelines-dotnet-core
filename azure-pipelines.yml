@@ -29,6 +29,7 @@ steps:
     echo var2 is $(var2)
 
 - bash: |
+    mkdir $(Build.ArtifactStagingDirectory)/info
     echo Branch = $(Build.SourceBranch) >> $(buildInfo)
     echo Commit = $(Build.SourceVersion) >> $(buildInfo)
     echo Message = $(Build.SourceVersionMessage) >> $(buildInfo)
