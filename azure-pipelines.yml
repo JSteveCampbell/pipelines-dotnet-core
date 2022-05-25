@@ -35,6 +35,12 @@ steps:
     cat $(buildInfo)
   displayName: 'display sys variables'
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(buildInfo)'
+    ArtifactName: 'info'
+    publishLocation: 'Container'
+
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Build.SourcesDirectory)/bin/Release'
