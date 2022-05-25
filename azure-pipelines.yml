@@ -12,7 +12,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  buildInfo: $(Build.ArtifactStagingDirectory)/'buildInfo.txt'
+  buildInfo: $(Build.ArtifactStagingDirectory)/info/'buildInfo.txt'
   myDate: $(Get-Date -Format yyyy.MMdd)
 
 steps:
@@ -37,7 +37,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(buildInfo)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/info'
     ArtifactName: 'info'
     publishLocation: 'Container'
 
