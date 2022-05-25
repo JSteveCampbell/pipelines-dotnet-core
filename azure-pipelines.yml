@@ -34,7 +34,12 @@ steps:
     echo Commit = $(Build.SourceVersion) >> $(buildInfo)
     echo Message = $(Build.SourceVersionMessage) >> $(buildInfo)
     cat $(buildInfo)
-  displayName: 'display sys variables'
+  displayName: 'create info file'
+
+- bash: |
+    value=$(<$(buildInfo))
+    echo "$value"
+  displayName: 'display info file contents'
 
 - task: PublishBuildArtifacts@1
   inputs:
