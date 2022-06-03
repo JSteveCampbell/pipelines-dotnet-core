@@ -41,6 +41,7 @@ steps:
     echo 'Branch = $(Build.SourceBranch) ... Commit = $(Build.SourceVersion) ... Message = $(Build.SourceVersionMessage)' >> $(buildInfo)
     cat $(buildInfo)
   displayName: 'create info file test'
+  continueOnError: true
 
 - bash: |
     value=$(<$(buildInfo))
