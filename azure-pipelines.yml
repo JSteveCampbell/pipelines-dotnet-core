@@ -38,7 +38,7 @@ steps:
 
 - bash: |
     mkdir $(Build.ArtifactStagingDirectory)/info
-    echo Branch = $(Build.SourceBranch) ... Commit = $(Build.SourceVersion) ... Message = $(Build.SourceVersionMessage) >> $(buildInfo)
+    echo 'Branch = $(Build.SourceBranch) ... Commit = $(Build.SourceVersion) ... Message = $(Build.SourceVersionMessage)' >> $(buildInfo)
     cat $(buildInfo)
   displayName: 'create info file'
 
